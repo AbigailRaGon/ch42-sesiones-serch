@@ -85,3 +85,103 @@ console.log(`myAge es null? ${myAge===null}`); // true, no es correcto utilizar 
 Tiene dos estados: true y false
 */
 const isActive = true;
+
+//=========CONVERSION EXPLICITA DE DATOS coercion de tipo===========
+
+
+//Converson a STRING
+const edadMascota = 10
+console.log ("Edad de mi mascota " + edadMascota); //"Edad de mi mascota: 10"
+
+//Conversión explicita
+const edadMascotaString = String(edadMascota); // "10"
+console.log("Edad de mi mascota en String "+ edadMascotaString); // "Edad de mi mascota String 10"
+
+//Conversion a number
+const costo="100";
+//Conversion implicita
+const costoConIVA= costo * 1.16; // 116.00
+
+//Conversión explicita
+const precioCroquetas = "1000.50";
+const precioJabon = "25"; // Todos estos datos son un string
+const precioPapel = "40";
+
+const total = precioCroquetas + precioJabon + precioPapel; // operador + como concatenación entonces el resultado final seria 1000.502540
+
+//Tenemos que hacer una conversion explicita
+const total = parseFloat (precioCroquetas) + parseInt(precioJabon) + Number(precioPapel);
+
+/*Number () vs parseInt()
+-Number convierte enteros y decimales
+-parseInt convierte solo la parte entera
+*/
+
+console.log( parseInt("10.456")); // 10
+console.log(parseFloat("10.456")); // 10.456
+console.log(Number("10.456")); // 10.456
+//Number devuelve NaN si la cadena contiene algun caracter no numerico
+//parseInt y parseFloat realiza la conversin hasta encontrar un caracter no numerio
+//con parseInt y parseFloat, si la entrada comienza con un valor no numerico devuelve NaN
+
+console.log(parseInt("10-25")); // 10
+console.log(parseInt("10-25")); //NaN
+
+//Para convertir un tipo de boolean a number se debe de utilizar Number()
+console.log(Number(true)); //1
+console.log(Number(false)); //0
+console.log(parseInt (true)); // NaN
+
+//Conversion a tipo boolean
+//En la conversion a boolean los siguientes valores son false:
+//""(empty string), 0, null, undefined
+
+console.log(Boolean(1)); // true
+console.log(Boolean(1000)); // true
+console.log(Boolean(-1000)); // true
+console.log(Boolean("Ya mero terminamos, me duele la cabeza")); //true
+console.log(Boolean("")); // false, comillas juntas
+console.log(Boolean("  ")); //Tiene un espacio, estonces es true
+
+//https://symbl.cc/es/unicode-table/ revisar valores de cada letra y numero, el valor de 0 es 48 en la tabla, existen valores string y numericos, solo con booleanos
+console.log(Boolean("0")); // true
+console.log(Boolean(0)); //False
+console.log(Boolean(Number("0"))); // false
+// Boolean (0), number convierte el string a 0
+
+//Resumen:
+/*Conversiones numericas
+NUMBER()
+[] empty array = 0, Si contiene un valor [30]= 30.
+ Si array tienen mas valores como [30,30] = NaN
+
+STRING()
+[] -> "", [12,2]->"12,2", function(){}-> "function(){}"
+// {} ->"[object,object]", {clave:valor, age:17} ->"[object,object]"
+
+*/
+
+// Para convertir un objeto a String la forma correcta es usar el metodo JSON.stringyfy(objeto);
+
+console.log(2<10); // true
+console.log("22" < 10); // false
+// Cuando son de diferentes tipos de datos la conversion es implicita, si son iguales no se puede
+console.log("22" > "3"); //cuando los dos operandos sean string se evalua cada caracter por su posición en la TABLA UNICODE. Se compara el primer caracter del op1 con el primer caracter del op2, si son iguales se continua con el segundo operando
+
+console.log("221">"24"); //false por la comparacion de los primeros digitos , los strings no coparan su valor numerico, mas bien comparan la posicion que tienen en la tabla unicode.
+
+// Cuando los dos operandos sean string, se evalua cada caracter
+// por su posición en la tabla unicode. Se compara el primer caracter del op1
+// con el primer caracter del op2, si son iguales se continua con el segundo operando        
+console.log(  "22" > "3"  );  // false 
+        //    50   >  51   
+console.log(  "221" > "24" ); // false
+        //     50("2") >  52("4")
+console.log(  "Mar" > "Dulce" ); // true
+        //     77   >   68
+console.log(  "Mar" > "Maricela" ); // false
+console.log(  "marbe" > "Maricela" ); // true
+       //      m > M
+console.log(  "marbe".toLowerCase() > "Maricela".toLowerCase() );
+      //       b > i     false
+      //      98 > 105   false
