@@ -153,13 +153,7 @@ const mismosUltimosDigitos = (num1, num2, num3) =>
     num1 % 10 === num2 % 10 && num1 % 10 === num3 % 10;*/
 
 
-//============================================
-/*
- ------------ Funciones de Callback -----------------------
- Es una función(definida, expresada, arrow, anónima) que se pasa 
- a otra función como argumento.
- Se pasa en el argumento como referencia ( sin parentesis).
- */
+
 
  // Hacer con arrow function una función que reciba un texto e imprima en consola
  
@@ -216,6 +210,41 @@ Switch: es una alternativa a if-else. permite ejecutar diferentes bloques de có
 
 //Modificacion en la memoria del navegador
 // Esto lo permite la APIDOM, esto es una modificacin dinámica
-printMessage("Hola, amigas","h1");
+/*printMessage("Hola, amigas","h1");
 printMessage("no, no (se rie en bolillense)","console");
-printMessage("Tres tristes tigres", "CONSOLE");
+printMessage("Tres tristes tigres", "CONSOLE");*/
+
+
+//============================================
+/*
+ ------------ Funciones de Callback -----------------------
+ Es una función(definida, expresada, arrow, anónima) que se pasa 
+ a otra función como argumento.
+ Se pasa en el argumento como referencia ( sin parentesis).
+ */
+
+const printMessageUsingCallback = (text, functionToPrint) => functionToPrint(text); 
+
+//printMessageUsingCallback("Cualquiera puede cocinar", 18) Arroja un error
+
+printMessageUsingCallback("Cualquiera puede cocinar", printToConsole); //Solo pasamos el nombre de la funcion sin parentesis ()
+printMessageUsingCallback("Cualquiera puede cocinar", printToH1); // printToH1 tiene un alias con functionToPrint deben de ser compatibles (reciben los mismos parametros), por ejemplo comparten text
+
+// ejercicio
+// Crear una función que modifique "logo-title" con un nuevo mensaje.
+const printToLogo = (text) => document.getElementById("logo-title").innerHTML = text;
+
+// Usar printMessageUsingCallback para pasarle la nueva función(como referencia), 
+// con el mensaje: "Ratatuil".
+
+printMessageUsingCallback("Ratotuil", printToLogo);
+
+//CAMBIAR LAS IMAGENES DE LA PAGINA DE FORMA DINAMICA
+const changeImage = (imageID, imagePath) => document.getElementById( imageID).src = imagePath;
+
+changeImage ("img1", "./public/img/remy01.jpg");
+changeImage ("img2", "./public/img/remy02.jpg");
+changeImage ("img3", "./public/img/remy03.jpg");
+changeImage ("img4", "./public/img/remy04.jpg");
+//Aqui estamos llamando la funcion callback y agregamos las rutas e imagenes 
+//funcion es la misma y solo cambia el nombre de la imagen y la ruta
