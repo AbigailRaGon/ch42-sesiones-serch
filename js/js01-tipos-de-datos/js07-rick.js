@@ -28,3 +28,6 @@ const getPersonas = ( url ) =>{
 };
 
 getPersonas( "https://rickandmortyapi.com/api/character");
+
+//agregar una paginación (pagination en bootstrap), solo las paginas 1,2,3
+
