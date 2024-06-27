@@ -13,8 +13,8 @@ SINTAXIS array.reduce(function(total, currentValue, currentIndex, arr), initialV
 
 const elArregloEs = [2, 4, 6, 8, 10, 20 ];
 
-console.log(elArregloEs.reduce((sumatoria, currentValue)=> sumatoria + currentValue, 0));
-console.log(elArregloEs.reduce((multiplication, currentValue)=> multiplication * currentValue, 1));
+console.log(elArregloEs.reduce((sumatoria, currentValue)=> sumatoria + currentValue, 0)); // 50
+console.log(elArregloEs.reduce((multiplication, currentValue)=> multiplication * currentValue, 1)); // 76800
 
 //====================================================================
 
@@ -23,11 +23,11 @@ const elOtroArregloEs = [5, 10, 15, 20, 25, 30];
 function sumatoriaArray (suma,number){return suma + number};
 
 function resultadoSuma (){console.log (elOtroArregloEs.reduce(sumatoriaArray))};
-resultadoSuma ();
+resultadoSuma (); // 105
 
 function multiplicaArray (multiplication,number){return multiplication * number};
 
 function resultadoProducto (){console.log (elOtroArregloEs.reduce(multiplicaArray))};
-resultadoProducto ();
+resultadoProducto (); // 11250000
 
 
