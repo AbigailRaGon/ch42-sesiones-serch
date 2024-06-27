@@ -86,3 +86,18 @@ const insertCards = (electrolitos) =>{
     return cards.join("");
 }
 buttonSection.innerHTML = insertCards (["electrolit", "pedialit", "electrolife"]);
+
+
+//================================
+// =============== pregunta de entrevista ===============
+/*
+ Dado el siguiente texto: "Ya vámonos"
+ Mostrar la frase al revés: "sonomáv aY" 
+*/
+const phrase2 = "Ya vámonos";
+let reversePhrase = "";
+for(let i = phrase2.length - 1 ;  i >= 0 ; i-- ){
+    reversePhrase = reversePhrase + phrase2.charAt(i);
+}
+console.log( reversePhrase );
+console.log(  phrase2.split("").reverse().join("")   );
