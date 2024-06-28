@@ -33,7 +33,29 @@ console.log(people.join(" - ")); // Maria - Luis - Camila
 console.log(people.length-1);// 2
 
 // 4. Write the command to move "Luis" to the front of the array.
-console.log(people.indexOf("Luis"));
+console.log(people.splice(0,2, "Luis", "Maria"));
+console.log(people);
+
+//5. Write the command to add your name to the end of the array.
+people.push("Abigail");
+console.log(people);
+
+//6. Using a loop, iterate through this array and after console.log "Maria", exit from the loop. (usar break)
+for(let i=0; i<people.length ; i++){
+    console.log(i, people[i]);
+    if(people[i]==="Maria")
+        break;
+};
+
+//7. Write the command that gives the indexOf where "Maria" is located.
+const positionMaria = people.indexOf("Maria");
+console.log(positionMaria); // 1
+
+
+//At the end of the exercise, there should be 4 people in the array.
+console.log(people); // (4) ['Luis', 'Maria', 'Camila', 'Abigail']
+
+
 
 
 

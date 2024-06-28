@@ -9,6 +9,14 @@ Create a program that loops over the 2 arrays; if there are any common courses p
 const studentOneCourses = ['Math', 'English', 'Programming'];
 const studentTwoCourses = ['Geography', 'Spanish', 'Programming'];
 
+//Iteracion del arreglo
+for (let course1 of studentOneCourses ){
+    console.log(course1);
+    for(let course2 of studentTwoCourses){
+        if(course1 === course2) console.log("Estudiante uno toma el curso " + course1, " y el segundo estudiante tambien cursa " + course2);
+    }
+}
+
 //==========filter()
 /*
 El método filter() de Array crea una copia superficial de una parte de una matriz dada, filtra solo los elementos de la matriz que pasan la prueba implementada por alguna función proporcionada.
@@ -16,6 +24,8 @@ Es una herramienta eficaz para extraer datos de forma selectiva de matrices en f
 */
 //Sintaxis: array.filter(callback(element, index, arr), thisValue)
 
+
+//===========Loop For of
 function sameSubject (index){
     return index === `Programming`;
 }
@@ -33,6 +43,11 @@ El método includes() devuelve true si una matriz contiene un valor especificado
 
 console.log (student1Courses.includes(`Programming`)); // true
 console.log (student2Courses.includes(`Programming`)); // true
+
+
+//============================Función de Serch, GRACIAS :D
+const commonCourse2 = student1Courses.filter ( course1 => student2Courses.includes(course1));
+console.log(commonCourse2);
 
 
 
